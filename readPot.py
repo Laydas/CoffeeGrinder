@@ -8,4 +8,10 @@ from time import sleep
 
 # Constantly read the potentiometer and print out the values
 def getSetting():
-	return ADC(0).read()
+	pot = ADC(0).read()
+	if pot <= 341:
+		return 0
+	elif pot > 341 and pot <= 682:
+		return 1
+	elif pot > 682:
+		return 2
